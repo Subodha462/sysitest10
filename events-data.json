@@ -1,0 +1,146 @@
+[
+    {
+        "title": "SUPERAI 2025",
+        "start": "2025-06-18",
+        "url": "https://aiml.events/events/superai-2025-2",
+        "description": "SuperAI 2025 brings together the global AI ecosystem on June 18 in Singapore.",
+        "location": "Singapore"
+    },
+    {
+        "title": "SCDM-2025",
+        "start": "2025-06-20",
+        "url": "https://indrashiluniversity.edu.in/scdm-2025",
+        "description": "Conference on Semiconductor Chip Design and Manufacturing.",
+        "location": "Gujarat, India"
+    },
+    {
+        "title": "E-commerce & Digital Natives Summit 2025",
+        "start": "2025-06-26",
+        "url": "https://retail.economictimes.indiatimes.com/ecommerce-summit",
+        "description": "The ET Ecommerce & D2C Summit 2025 in New Delhi.",
+        "location": "Bengaluru"
+    },
+    {
+        "title": "ICNS‑15",
+        "start": "2025-07-06",
+        "end": "2025-07-11",
+        "url": "https://mkon.nu/icns-15",
+        "description": "International Conference on Nitride Semiconductors.",
+        "location": "Malmö, Sweden"
+    },
+    {
+        "title": "DIGITAL CIO INDONESIA 2025",
+        "start": "2025-07-15",
+        "url": "https://aiml.events/events/digital-cio-indonesia-2025",
+        "description": "Digital strategies and AI transformation.",
+        "location": "Jakarta, Indonesia"
+    },
+    {
+        "title": "AIS 2025",
+        "start": "2025-07-29",
+        "url": "https://aiml.events/events/ais-2025",
+        "description": "AI and ML research event in Malaysia.",
+        "location": "Malaysia"
+    },
+    {
+        "title": "BFSI IT Summit – Mumbai 2025",
+        "start": "2025-08-07",
+        "url": "https://aiml.events/events/bfsi-it-summt-mumbai-2025",
+        "description": "AI and tech in banking/finance.",
+        "location": "Mumbai"
+    },
+    {
+        "title": "Next-Gen IoT Expo 2025",
+        "start": "2025-08-24",
+        "url": "https://aiml.events/events/next-generation-iot-expo-2025",
+        "description": "IoT, edge computing, AI.",
+        "location": "Saudi Arabia"
+    },
+    {
+        "title": "IntelliSys 2025",
+        "start": "2025-08-28",
+        "url": "https://aiml.events/events/intelligent-systems-conference-intellisys-2025",
+        "description": "Conference on intelligent systems.",
+        "location": "Amsterdam, Netherlands"
+    },
+    {
+        "title": "RustConf 2025",
+        "start": "2025-09-02",
+        "url": "https://rustfoundation.org/event/rustconf-2025/",
+        "description": "Rust development conference.",
+        "location": "Washington"
+    },
+    {
+        "title": "OXIDIZE 2025",
+        "start": "2025-09-16",
+        "url": "https://rustfoundation.org/event/oxidize-2025/",
+        "description": "Rust developer summit.",
+        "location": "Berlin"
+    },
+    {
+        "title": "ASDIT 2025",
+        "start": "2025-09-19",
+        "end": "2025-09-21",
+        "url": "https://asdit.org/",
+        "description": "Advanced semiconductor devices conference.",
+        "location": "Wuxi, China"
+    },
+    {
+        "title": "CAS 2025",
+        "start": "2025-10-07",
+        "end": "2025-10-11",
+        "url": "http://www.imt.ro/cas",
+        "description": "Semiconductor technologies and microsystems.",
+        "location": "Sinaia, Romania"
+    },
+    {
+        "title": "EuroRust 2025",
+        "start": "2025-10-09",
+        "url": "https://rustfoundation.org/event/eurorust-2025/",
+        "description": "Rust community event.",
+        "location": "Paris, France"
+    },
+    {
+        "title": "IECG 2025",
+        "start": "2025-10-15",
+        "url": "https://aiml.events/events/the-1st-international-electronic-conference-on-games",
+        "description": "Electronic Conference on Games.",
+        "location": "Online"
+    },
+    {
+        "title": "Big Data & AI + IoT Conf",
+        "start": "2025-11-03",
+        "url": "https://www.allconferencealert.com/event/1339259",
+        "description": "International conference on Big Data, AI and IoT.",
+        "location": "Chandigarh, India"
+    },
+    {
+        "title": "Mental Health Conference 2025",
+        "start": "2025-11-15",
+        "url": "https://aiml.events/events/mental-health-conference-2025",
+        "description": "AI in mental healthcare.",
+        "location": "Florida"
+    },
+    {
+        "title": "CDAO DALLAS 2025",
+        "start": "2025-11-26",
+        "url": "https://aiml.events/events/cdao-dallas-2025",
+        "description": "Data analytics leadership.",
+        "location": "USA"
+    },
+    {
+        "title": "Tech.AD USA 2025",
+        "start": "2025-12-08",
+        "url": "https://aiml.events/events/techad-usa-2025",
+        "description": "Autonomous vehicle experts gathering.",
+        "location": "USA"
+    },
+    {
+        "title": "STPEC 2025",
+        "start": "2025-12-10",
+        "end": "2025-12-13",
+        "url": "https://nitgoa.ac.in/STPEC2025/",
+        "description": "Smart technologies in power and control.",
+        "location": "NIT Goa, India"
+    }
+]

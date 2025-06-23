@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Material - SYSI Research Foundation</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .split-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 80px 20px;
+      background: #f4f6fc;
+    }
+
+    .split-section .text-box,
+    .split-section .media-box {
+      flex: 1 1 45%;
+    }
+
+    .text-box h2 {
+      font-size: 2.5rem;
+      color: #1e2561;
+      margin-bottom: 20px;
+    }
+
+    .text-box p {
+      font-size: 1.1rem;
+      color: #070606;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .media-box img,
+    .media-box iframe {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .am-image {
+      width: 60%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-section {
+      background-color: #4aafbc;
+      padding: 60px 20px;
+      border-radius: 12px;
+      margin-bottom: 60px;
+      /* <-- This adds space before the footer */
+    }
+
+    .nano-intro-section {
+      background: linear-gradient(to right, #4985c2, #1f297e);
+      color: white;
+      padding: 80px 20px;
+    }
+
+    .am-intro-section {
+      background: linear-gradient(to right, #4985c2, #1f297e);
+      color: white;
+      padding: 80px 20px;
+    }
+
+    .am-intro-section {
+      background: linear-gradient(to right, #4985c2, #1f297e);
+      color: white;
+      padding: 80px 20px;
+    }
+
+    .am-intro-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .am-intro-text {
+      flex: 1 1 45%;
+    }
+
+    .am-intro-text h1 {
+      font-size: 2.8rem;
+      color: #FFCA28;
+      margin-bottom: 20px;
+    }
+
+    .am-intro-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-align: justify;
+    }
+
+    .am-intro-image {
+      flex: 1 1 45%;
+    }
+
+    .am-intro-image img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+
+    .btn.btn-yellow {
+      background-color: #FFCA28;
+      color: #000;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn.btn-yellow:hover {
+      background-color: #ffc107;
+    }
+
+
+    @media (max-width: 768px) {
+      .split-section {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .am-intro-text h1 {
+        font-size: 1.8rem;
+        text-align: center;
+        word-break: break-word;
+      }
+
+      .am-intro-text p,
+      .am-section p {
+        font-size: 1rem;
+        padding: 0 10px;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        text-align: justify;
+      }
+
+      .am-container {
+        flex-direction: column;
+        padding: 0 10px;
+      }
+
+      .am-section {
+        flex-direction: column;
+        padding: 40px 10px;
+      }
+
+      .am-section .text-box,
+      .am-section .media-box {
+        width: 100%;
+      }
+
+      .am-section iframe {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="index.html"><img src="logo final 2.png" alt="SYSI Logo" /></a>
+    </div>
+    <div class="container">
+      <div class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#about" class="dropdown-toggle">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="sysi.html">SYSI</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="news.html">News</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#about" class="dropdown-toggle">Specifications</a>
+            <ul class="dropdown-menu">
+              <li><a href="under-development.html">Under Development</a></li>
+              <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#industries" class="dropdown-toggle">Industries</a>
+            <ul class="dropdown-menu industries-dropdown">
+              <li>
+                <div class="industries-grid three-columns">
+                  <div class="industry-group">
+                    <h4 class="tech-heading">TECHNOLOGIES</h4>
+                    <div class="tech-columns">
+                      <div class="industry-column">
+                        <a href="quantum.html">Quantum Computing</a>
+                        <a href="ai.html">Artificial Intelligence</a>
+                        <a href="neuro.html">Neurotechnology</a>
+                        <a href="embedded.html">Embedded System</a>
+                        <a href="software.html">Software Development</a>
+                        <a href="space.html">Space Technology</a>
+                      </div>
+                      <div class="industry-column">
+                        <a href="biotech.html">Bio Technology</a>
+                        <a href="renew.html">Renewable Energy</a>
+                        <a href="nanotechnology.html">Nano Technology</a>
+                        <a href="cybersecurity.html">Cyber Security</a>
+                        <a href="synthetic-biology.html">Synthetic Biology</a>
+                        <a href="advanced-material.html">Advanced Material</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="industry-column">
+                    <h4>APPLICATIONS</h4>
+                    <a href="semiconductor.html">Semiconductors</a>
+                    <a href="arvr.html">AR VR</a>
+                    <a href="robotics.html">Robotics</a>
+                    <a href="autonomous-vehicle.html">Autonomous Vehicle</a>
+                    <a href="iot.html">IoT</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#about" class="dropdown-toggle">Community</a>
+            <ul class="dropdown-menu">
+              <li><a href="community-events.html"> Community Events</a></li>
+              <li><a href="calendar.html"> Calendar</a></li>
+              <li><a href="video.html"> Videos</a></li>
+              <li><a href="meeting-calendar.html"> Meeting Calendar</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#about" class="dropdown-toggle">Members</a>
+            <ul class="dropdown-menu">
+              <li><a href="member.html">Current Members</a></li>
+              <li><a href="join.html">Join</a></li>
+            </ul>
+          </li>
+          <li><a href="join.html" class="btn btn-primary btn-join">Join</a></li>
+          <li class="social-icons">
+            <a href="https://www.linkedin.com/company/sysi-research-foundation/ " target="_blank" title="LinkedIn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6C1.11 6 0 4.88 0 3.5C0 2.12 1.11 1 2.49 1C3.87 1 4.98 2.12 4.98 3.5ZM.5 8H4.5V24H.5V8ZM8.5 8H12.3V10.06H12.36C12.91 9.09 14.28 8.06 16.28 8.06C20.4 8.06 21 10.63 21 14.1V24H17V14.84C17 13.07 16.96 10.86 14.61 10.86C12.23 10.86 11.9 12.8 11.9 14.7V24H8V8H8.5Z" />
+              </svg>
+            </a>
+            <a href="https://youtube.com/@rusttechxsummit?feature=shared" target="_blank" title="YouTube">
+              <svg width="28" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M23.498 6.186a2.994 2.994 0 0 0-2.112-2.12C19.595 3.5 12 3.5 12 3.5s-7.595 0-9.386.566a2.994 2.994 0 0 0-2.112 2.12A29.91 29.91 0 0 0 0 12a29.91 29.91 0 0 0 .502 5.814 2.994 2.994 0 0 0 2.112 2.12C4.405 20.5 12 20.5 12 20.5s7.595 0 9.386-.566a2.994 2.994 0 0 0 2.112-2.12A29.91 29.91 0 0 0 24 12a29.91 29.91 0 0 0-.502-5.814zM9.75 15.5v-7l6 3.5-6 3.5z" />
+              </svg>
+            </a>
+            <a href="https://matrix.to/#/%23sysi-research:matrix.org" target="_blank" title="Matrix">
+              <svg width="26" height="26" viewBox="0 0 256 256" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M48 32h160a16 16 0 0 1 16 16v160a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16V48a16 16 0 0 1 16-16zm16 24v144h128V56H64zm32 32h16v80H96V88zm48 0h16v80h-16V88z" />
+              </svg>
+            </a>
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@sysiresearch.org" title="Email">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8l8 5 8-5v10H4z" />
+              </svg>
+            </a>
+            <a href="#" title="Search">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 6 11.99 6 9.5S8.01 5 10.5 5 15 7.01 15 9.5 12.99 14 10.5 14z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Add this right after header -->
+  <div id="searchOverlay" class="search-overlay">
+    <div class="search-content">
+      <span class="close-search">&times;</span>
+      <h2>Search SYSI</h2>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Enter your search term..." autocomplete="off">
+      </div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+
+
+  <main>
+    <section class="am-intro-section">
+      <div class="am-intro-container">
+        <div class="am-intro-text">
+          <h1><span class="sysi-font">SYSI</span> & Advanced Material</h1>
+          <p>
+            Advanced materials are transforming the future of technology and sustainability. At SYSI
+            Research Foundation, we are pioneering research in smart materials, nanostructures, and
+            multifunctional composites—enabling breakthroughs in electronics, energy storage, healthcare,
+            and beyond.
+          </p>
+
+
+
+          <a href="contact.html" class="btn btn-yellow">Contact Us</a>
+        </div>
+    </section>
+
+    <section class="split-section">
+      <div class="text-box">
+        <h2>Advanced Material</h2>
+        <p>Advanced materials are reshaping the landscape of science and engineering—enabling stronger, lighter,
+          more efficient, and more sustainable solutions across industries. This field spans innovations in
+          nanomaterials, bio-compatible compounds, quantum materials, and smart surfaces, unlocking new
+          capabilities in electronics, healthcare, aerospace, and energy.</p>
+        <p>At SYSI Research Foundation, we pursue advanced materials research across functional composites,
+          responsive polymers, and materials-by-design. Our projects explore applications in energy
+          harvesting, flexible electronics, and biomedical devices—driven by interdisciplinary collaboration
+          and a commitment to building the next generation of adaptive, high-performance materials for a
+          sustainable future.</p>
+
+
+
+      </div>
+      <div class="media-box">
+        <img src="industries/avdanced.jpeg" alt="Advanced Material Research" class="am-image">
+      </div>
+    </section>
+
+    <section class="split-section video-section">
+      <div class="text-box">
+        <h2>Advanced Materials Research Video</h2>
+        <p>This video delves into the world of advanced materials and their transformative impact on modern
+          technologies. Explore how SYSI is pioneering innovations in nanomaterials, functional composites,
+          and smart surfaces to power breakthroughs across energy, electronics, and healthcare.</p>
+      </div>
+      <div class="media-box">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/wMLvodIVYNI"
+          title="Advanced Materials Research Video" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-columns footer-top-section">
+        <div class="footer-column subscribe-section">
+          <h3>Subscribe for Updates</h3>
+
+          <form id="subscribeForm">
+            <input type="text" name="firstName" placeholder="First Name*" required>
+            <input type="text" name="lastName" placeholder="Last Name*" required>
+            <input type="email" name="email" placeholder="Email*" required>
+            <select name="country" required>
+              <option value="" disabled selected>Country*</option>
+              <option value="australia">Australia</option>
+              <option value="austria">Austria</option>
+              <option value="belgium">Belgium</option>
+              <option value="brazil">Brazil</option>
+              <option value="canada">Canada</option>
+              <option value="china">China</option>
+              <option value="czech-republic">Czech Republic</option>
+              <option value="denmark">Denmark</option>
+              <option value="estonia">Estonia</option>
+              <option value="finland">Finland</option>
+              <option value="france">France</option>
+              <option value="germany">Germany</option>
+              <option value="hong-kong">Hong Kong</option>
+              <option value="hungary">Hungary</option>
+              <option value="india">India</option>
+              <option value="indonesia">Indonesia</option>
+              <option value="ireland">Ireland</option>
+              <option value="israel">Israel</option>
+              <option value="italy">Italy</option>
+              <option value="japan">Japan</option>
+              <option value="south-korea">South Korea</option>
+              <option value="latvia">Latvia</option>
+              <option value="lithuania">Lithuania</option>
+              <option value="luxembourg">Luxembourg</option>
+              <option value="malaysia">Malaysia</option>
+              <option value="mexico">Mexico</option>
+              <option value="netherlands">Netherlands</option>
+              <option value="new-zealand">New Zealand</option>
+              <option value="norway">Norway</option>
+              <option value="poland">Poland</option>
+              <option value="portugal">Portugal</option>
+              <option value="russia">Russia</option>
+              <option value="saudi-arabia">Saudi Arabia</option>
+              <option value="singapore">Singapore</option>
+              <option value="slovenia">Slovenia</option>
+              <option value="spain">Spain</option>
+              <option value="sweden">Sweden</option>
+              <option value="switzerland">Switzerland</option>
+              <option value="taiwan">Taiwan</option>
+              <option value="uae">United Arab Emirates</option>
+              <option value="uk">United Kingdom</option>
+              <option value="usa">United States</option>
+              <option value="vietnam">Vietnam</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="subscriptionTypes" value="Technical">
+                <span>Technical</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subscriptionTypes" value="Marketing">
+                <span>Marketing</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subscriptionTypes" value="Education">
+                <span>Education</span>
+              </label>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+          <div id="subscribeSuccessMsg" class="subscribe-success" style="display:none;">
+            <h4>🎉 Congratulations! You are subscribed.</h4>
+            <p>You're now part of a future-focused community shaping tomorrow's innovations at SYSI.</p>
+            <button onclick="document.getElementById('subscribeSuccessMsg').style.display='none'"
+              class="ok-btn">Okay</button>
+          </div>
+        </div>
+        <div class="footer-column join-section">
+          <h3>Join SYSI</h3>
+          <p>Become part of a global community driving innovation in cutting-edge technologies. Collaborate,
+            contribute, and shape the future with SYSI Research Foundation.</p>
+          <a href="join.html" class="btn btn-primary btn-join">Join Now</a>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>ABOUT</h3>
+            <ul>
+              <li><a href="sysi.html">SYSI</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="news.html">News</a></li>
+              <br>
+              <h3>MEMBERS</h3>
+              <ul>
+                <li><a href="member.html">Current Members</a></li>
+                <li><a href="join.html">Join</a></li>
+              </ul>
+              <br>
+              <h3>POLICIES</h3>
+              <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+              </ul>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>SPECIFICATION</h3>
+            <ul>
+              <li><a href="under-development.html">Under Development</a></li>
+              <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>TECHNOLOGIES</h3>
+            <ul>
+              <li><a href="quantum.html">Quantum Computing</a></li>
+              <li><a href="ai.html">Artificial Intelligence</a></li>
+              <li><a href="neuro.html">Neurotechnology</a></li>
+              <li><a href="embedded.html">Embedded System</a></li>
+              <li><a href="software.html">Software Development</a></li>
+              <li><a href="space.html">Space Technology</a></li>
+              <li><a href="biotech.html">Bio Technology</a></li>
+              <li><a href="renew.html">Renewable Energy</a></li>
+              <li><a href="nanotechnology.html">Nano Technology</a></li>
+              <li><a href="cybersecurity.html">Cyber Security</a></li>
+              <li><a href="synthetic-biology.html">Synthetic Biology</a></li>
+              <li><a href="advanced-material.html">Advanced Material</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>APPLICATIONS</h3>
+            <ul>
+              <li><a href="semiconductor.html">Semiconductors</a></li>
+              <li><a href="arvr.html">AR VR</a></li>
+              <li><a href="robotics.html">Robotics</a></li>
+              <li><a href="autonomous-vehicle.html">Autonomous Vehicle</a></li>
+              <li><a href="iot.html">IoT</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>COMMUNITY</h3>
+            <ul>
+              <li><a href="community-events.html">Community Events</a></li>
+              <li><a href="calendar.html">Calendar</a></li>
+              <li><a href="video.html">Videos</a></li>
+              <li><a href="meeting-calendar.html">Meeting Calendar</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="privacy-notice">
+            By submitting this form you are consenting to receive marketing emails about news, events, and
+            training from
+            SYSI.
+            You can unsubscribe at any time by following the “Subscription Center” link included within such
+            communications.
+            For information on our privacy practices and commitment to protecting your privacy, please
+            review our
+            <a href="#">Privacy Policy</a>. We do not sell your contact information to third parties.
+          </p>
+          <p class="footer-text">© 2025 SYSI Research Foundation. All rights reserved.</p>
+        </div>
+      </div>
+      <style>
+        .footer-columns {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 40px;
+        }
+
+        .footer-top-section {
+          grid-template-columns: 1fr 1fr;
+          margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+          color: #00aaff;
+          border-bottom: 2px solid #ffca28;
+          display: inline-block;
+          margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+          color: #ccc;
+          text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+          color: #ffca28;
+        }
+
+        .privacy-notice {
+          max-width: 100%;
+          font-size: 0.85rem;
+          color: #aaa;
+          line-height: 1.6;
+          margin-bottom: 15px;
+        }
+
+        .footer-bottom input,
+        .footer-bottom select {
+          width: 100%;
+          max-width: 400px;
+        }
+
+        .join-section .btn-join {
+          padding: 8px 20px;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--white);
+          background: transparent;
+          border: none;
+          border-radius: 50px;
+          text-decoration: none;
+          transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .join-section .btn-join:hover {
+          color: var(--accent);
+          transform: translateY(-2px);
+        }
+
+        .btn-join {
+          padding: 8px 20px;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--white);
+          text-decoration: none;
+          border-radius: 50px;
+          background: transparent;
+          border: none;
+          transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-join:hover {
+          color: var(--accent);
+          transform: translateY(-2px);
+        }
+      </style>
+  </footer>
+
+  <script>
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropdowns = document.querySelectorAll('.dropdown');
+
+      dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
+
+        menu.style.display = 'none';
+
+        dropdown.addEventListener('mouseenter', () => {
+          menu.style.display = 'block';
+        });
+
+        dropdown.addEventListener('mouseleave', () => {
+          menu.style.display = 'none';
+        });
+
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isVisible = menu.style.display === 'block';
+          document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
+          if (!isVisible) menu.style.display = 'block';
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+          document.querySelectorAll('.dropdown-menu').forEach(menu => menu.style.display = 'none');
+        }
+      });
+      document.getElementById('subscribeForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const data = {
+          firstName: form.firstName.value,
+          lastName: form.lastName.value,
+          email: form.email.value,
+          country: form.country.value,
+          subscriptionTypes: Array.from(form.querySelectorAll('input[name="subscriptionTypes"]:checked')).map(el => el.value)
+        };
+
+        console.log("Sending data:", data); // Debug: Check the data being sent
+
+        try {
+          const res = await fetch('http://localhost:3000/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+
+          if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);  // Fix: Add proper template literal syntax
+          }
+
+          const msg = await res.text();
+          console.log("Server responded:", msg);
+          document.getElementById('subscribeSuccessMsg').style.display = 'block';
+
+          form.reset();
+        } catch (err) {
+          console.error("Fetch error:", err);
+          alert('Submission failed: ' + err.message);
+        }
+      });
+
+
+      // Search functionality - fixed close button
+      const searchBtn = document.querySelector('[title="Search"]');
+      const searchOverlay = document.getElementById('searchOverlay');
+      const searchInput = document.getElementById('searchInput');
+      const searchResults = document.getElementById('searchResults');
+      const closeSearch = document.querySelector('.close-search');
+
+      function hideSearchOverlay() {
+        searchOverlay.style.display = 'none';
+        searchInput.value = '';
+        searchResults.innerHTML = '';
+      }
+
+      searchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        searchOverlay.style.display = 'block';
+        searchInput.focus();
+      });
+
+      // Updated close button handler
+      closeSearch.addEventListener('click', hideSearchOverlay);
+
+      // Close on Escape key
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchOverlay.style.display === 'block') {
+          hideSearchOverlay();
+        }
+      });
+
+      // Close when clicking outside the search content
+      searchOverlay.addEventListener('click', (e) => {
+        if (e.target === searchOverlay) {
+          hideSearchOverlay();
+        }
+      });
+
+      // Collection of searchable content
+      const searchableContent = [
+        // Technologies
+        { title: 'Quantum Computing', url: 'quantum.html', preview: 'Exploring quantum mechanics for revolutionary computing capabilities.' },
+        { title: 'Artificial Intelligence', url: 'ai.html', preview: 'AI is reshaping the world with intelligent algorithms that learn, reason, and adapt.' },
+        { title: 'Neurotechnology', url: 'neuro.html', preview: 'Advancing brain-computer interfaces and neural engineering solutions.' },
+        { title: 'Embedded Systems', url: 'embedded.html', preview: 'Developing specialized computer systems for specific functions within larger systems.' },
+        { title: 'Software Development', url: 'software.html', preview: 'Creating robust software solutions across multiple platforms and technologies.' },
+        { title: 'Space Technology', url: 'space.html', preview: 'Innovating technologies for space exploration and satellite systems.' },
+        { title: 'Biotechnology', url: 'biotech.html', preview: 'Biotechnology enables groundbreaking therapies, sustainable food, and genetic innovations.' },
+        { title: 'Renewable Energy', url: 'renew.html', preview: 'Developing sustainable energy solutions for a cleaner future.' },
+        { title: 'Nanotechnology', url: 'nanotechnology.html', preview: 'Manipulating matter at the atomic scale for breakthrough applications.' },
+        { title: 'Cyber Security', url: 'cybersecurity.html', preview: 'Protecting digital assets and infrastructure from cyber threats.' },
+        { title: 'Synthetic Biology', url: 'synthetic-biology.html', preview: 'Engineering biological systems for novel applications.' },
+        { title: 'Advanced Materials', url: 'advanced-material.html', preview: 'Developing new materials with enhanced properties and capabilities.' },
+
+        // Applications
+        { title: 'Semiconductors', url: 'semiconductor.html', preview: 'Advancing semiconductor technology for next-generation electronics.' },
+        { title: 'AR & VR', url: 'arvr.html', preview: 'Augmented and Virtual Reality unlock immersive experiences that bridge the physical and digital.' },
+        { title: 'Robotics', url: 'robotics.html', preview: 'Building intelligent robotic systems for various applications.' },
+        { title: 'Autonomous Vehicles', url: 'autonomous-vehicle.html', preview: 'Developing self-driving technology for safer transportation.' },
+        { title: 'IoT', url: 'iot.html', preview: 'Connecting devices and systems in the Internet of Things.' },
+
+        // About
+        { title: 'SYSI', url: 'sysi.html', preview: 'SYSI Research Foundation is committed to exploring the frontiers of knowledge across cutting-edge domains.' },
+        { title: 'FAQ', url: 'faq.html', preview: 'Frequently asked questions about SYSI Research Foundation.' },
+        { title: 'Contact Us', url: 'contact.html', preview: 'Get in touch with SYSI Research Foundation.' },
+        { title: 'News', url: 'news.html', preview: 'Latest updates and announcements from SYSI.' },
+
+        // Community
+        { title: 'Community Events', url: 'community-events.html', preview: 'Join our community events and networking opportunities.' },
+        { title: 'Calendar', url: 'calendar.html', preview: 'Upcoming events and important dates.' },
+        { title: 'Videos', url: 'video.html', preview: 'Watch presentations and tutorials from SYSI.' },
+        { title: 'Meeting Calendar', url: 'meeting-calendar.html', preview: 'Schedule of upcoming meetings and conferences.' },
+
+        // Members
+        { title: 'Current Members', url: 'member.html', preview: 'Meet our community of researchers and innovators.' },
+        { title: 'Join', url: 'join.html', preview: 'Become part of the SYSI Research Foundation community.' },
+
+        // Specifications
+        { title: 'Under Development', url: 'under-development.html', preview: 'Current projects and initiatives in development.' },
+        { title: 'Contribute', url: 'contribute.html', preview: 'Ways to contribute to SYSI Research Foundation.' }
+      ];
+
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        if (query.length < 2) {
+          searchResults.innerHTML = '';
+          return;
+        }
+
+        const filteredResults = searchableContent.filter(item =>
+          item.title.toLowerCase().includes(query) ||
+          item.preview.toLowerCase().includes(query)
+        );
+
+        searchResults.innerHTML = filteredResults.length > 0
+          ? filteredResults.map(item => `
+              <div class="result-item">
+                <a href="${item.url}">
+                  <div class="result-title">${item.title}</div>
+                  <div class="result-preview">${item.preview}</div>
+                </a>
+              </div>
+            `).join('')
+          : '<p style="color: #fff;">No results found</p>';
+      });
+
+      // Close search on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchOverlay.style.display === 'block') {
+          hideSearchOverlay();
+        }
+      });
+      // Hamburger toggle for mobile
+      document.getElementById('navToggle')?.addEventListener('click', function () {
+        document.querySelector('.nav ul')?.classList.toggle('active');
+      });
+
+      const isMobile = window.innerWidth <= 1024;
+
+      if (isMobile) {
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+          toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            const menu = this.nextElementSibling;
+
+            document.querySelectorAll('.dropdown-menu').forEach(m => {
+              if (m !== menu) m.style.display = 'none';
+            });
+
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+          });
+        });
+
+        document.addEventListener('click', function (e) {
+          if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+              menu.style.display = 'none';
+            });
+          }
+        });
+      }
+    });
+
+  </script>
+</body>
+
+</html>

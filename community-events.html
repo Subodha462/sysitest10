@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Events | SYSI Research Foundation</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next,
+    .swiper-button-prev-past,
+    .swiper-button-next-past {
+      color: #0b0b0b;
+    }
+
+    a.card-link:hover {
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
+    }
+
+    .move-animation {
+      animation: fadeInSlide 0.6s ease-in-out;
+    }
+
+    @keyframes fadeInSlide {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+
+    .swiper-slide.card-link {
+      height: 500px;
+      /* Uniform height */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .swiper-slide.card-link img {
+      height: 192px;
+      /* Same as h-48 */
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .swiper-slide.card-link .p-4 {
+      flex: 1;
+      /* Fill remaining height */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Clamp the description to 3 lines max */
+    .swiper-slide.card-link p.text-gray-700 {
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .swiper-wrapper {
+      display: flex !important;
+      flex-direction: row !important;
+    }
+
+    .swiper-container {
+      width: 100%;
+    }
+
+    .swiper-container {
+      width: 100%;
+    }
+
+    .search-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+    }
+
+    .search-content {
+      position: relative;
+      top: 20%;
+      width: 80%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: rgb(13, 9, 9);
+    }
+
+    .close-search {
+      position: absolute;
+      right: 25px;
+      top: 0;
+      color: #fff;
+      font-size: 35px;
+      cursor: pointer;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    #searchResults {
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    #searchResults a {
+      color: #00aaff;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      margin-bottom: 5px;
+      border-radius: 4px;
+    }
+
+    #searchResults a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .result-item {
+      margin-bottom: 15px;
+    }
+
+    .result-title {
+      color: #00aaff;
+      font-weight: bold;
+    }
+
+    .result-preview {
+      color: #ccc;
+      font-size: 0.9em;
+    }
+
+    main {
+      background-color: #edf2f7;
+      border-radius: 12px;
+      margin: 2rem auto;
+      max-width: 1440px;
+    }
+
+    h2 {
+      color: #06080b;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+  </style>
+</head>
+
+<body class="bg-blue-50 text-gray-800">
+
+
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html"><img src="logo final 2.png" alt="SYSI Logo" /></a>
+    </div>
+    <div class="container">
+      <div class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#about" class="dropdown-toggle">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="sysi.html">SYSI</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="news.html">News</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#about" class="dropdown-toggle">Specifications</a>
+            <ul class="dropdown-menu">
+              <li><a href="under-development.html">Under Development</a></li>
+              <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#industries" class="dropdown-toggle">Industries</a>
+            <ul class="dropdown-menu industries-dropdown">
+              <li>
+                <div class="industries-grid three-columns">
+                  <div class="industry-group">
+                    <h4 class="tech-heading">TECHNOLOGIES</h4>
+                    <div class="tech-columns">
+                      <div class="industry-column">
+                        <a href="quantum.html">Quantum Computing</a>
+                        <a href="ai.html">Artificial Intelligence</a>
+                        <a href="neuro.html">Neurotechnology</a>
+                        <a href="embedded.html">Embedded System</a>
+                        <a href="software.html">Software Development</a>
+                        <a href="space.html">Space Technology</a>
+                      </div>
+                      <div class="industry-column">
+                        <a href="biotech.html">Bio Technology</a>
+                        <a href="renew.html">Renewable Energy</a>
+                        <a href="nanotechnology.html">Nano Technology</a>
+                        <a href="cybersecurity.html">Cyber Security</a>
+                        <a href="synthetic-biology.html">Synthetic Biology</a>
+                        <a href="advanced-material.html">Advanced Material</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="industry-column">
+                    <h4>APPLICATIONS</h4>
+                    <a href="semiconductor.html">Semiconductors</a>
+                    <a href="arvr.html">AR VR</a>
+                    <a href="robotics.html">Robotics</a>
+                    <a href="autonomous-vehicle.html">Autonomous Vehicle</a>
+                    <a href="iot.html">IoT</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#about" class="dropdown-toggle">Community</a>
+            <ul class="dropdown-menu">
+              <li><a href="community-events.html"> Community Events</a></li>
+              <li><a href="calendar.html"> Calendar</a></li>
+              <li><a href="video.html"> Videos</a></li>
+              <li><a href="meeting-calendar.html"> Meeting Calendar</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#about" class="dropdown-toggle">Members</a>
+            <ul class="dropdown-menu">
+              <li><a href="member.html">Current Members</a></li>
+              <li><a href="join.html">Join</a></li>
+            </ul>
+          </li>
+          <li><a href="join.html" class="btn btn-primary btn-join">Join</a></li>
+          <li class="social-icons">
+            <a href="https://www.linkedin.com/company/sysi-research-foundation/ " target="_blank" title="LinkedIn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6C1.11 6 0 4.88 0 3.5C0 2.12 1.11 1 2.49 1C3.87 1 4.98 2.12 4.98 3.5ZM.5 8H4.5V24H.5V8ZM8.5 8H12.3V10.06H12.36C12.91 9.09 14.28 8.06 16.28 8.06C20.4 8.06 21 10.63 21 14.1V24H17V14.84C17 13.07 16.96 10.86 14.61 10.86C12.23 10.86 11.9 12.8 11.9 14.7V24H8V8H8.5Z" />
+              </svg>
+            </a>
+            <a href="https://youtube.com/@rusttechxsummit?feature=shared" target="_blank" title="YouTube">
+              <svg width="28" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M23.498 6.186a2.994 2.994 0 0 0-2.112-2.12C19.595 3.5 12 3.5 12 3.5s-7.595 0-9.386.566a2.994 2.994 0 0 0-2.112 2.12A29.91 29.91 0 0 0 0 12a29.91 29.91 0 0 0 .502 5.814 2.994 2.994 0 0 0 2.112 2.12C4.405 20.5 12 20.5 12 20.5s7.595 0 9.386-.566a2.994 2.994 0 0 0 2.112-2.12A29.91 29.91 0 0 0 24 12a29.91 29.91 0 0 0-.502-5.814zM9.75 15.5v-7l6 3.5-6 3.5z" />
+              </svg>
+            </a>
+            <a href="https://matrix.to/#/%23sysi-research:matrix.org" target="_blank" title="Matrix">
+              <svg width="26" height="26" viewBox="0 0 256 256" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M48 32h160a16 16 0 0 1 16 16v160a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16V48a16 16 0 0 1 16-16zm16 24v144h128V56H64zm32 32h16v80H96V88zm48 0h16v80h-16V88z" />
+              </svg>
+            </a>
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@sysiresearch.org" title="Email">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8l8 5 8-5v10H4z" />
+              </svg>
+            </a>
+            <a href="#" title="Search">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 6 11.99 6 9.5S8.01 5 10.5 5 15 7.01 15 9.5 12.99 14 10.5 14z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Add this right after header -->
+  <div id="searchOverlay" class="search-overlay">
+    <div class="search-content">
+      <span class="close-search">&times;</span>
+      <h2>Search SYSI</h2>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Enter your search term..." autocomplete="off">
+      </div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Main Section -->
+  <main class="py-12 px-6 lg:px-20">
+    <h2 class="text-3xl font-bold text-center mb-8">Upcoming Community Events</h2>
+
+    <!-- Swiper Container -->
+    <div class="relative">
+      <div class="swiper upcomingSwiper">
+        <div class="swiper-wrapper">
+
+          <!-- Event Card 1 -->
+
+          <!-- Event Card 2 -->
+
+          <a href="https://aiml.events/events/superai-2025-2" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event2.jpg" alt="SuperAI 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">SUPERAI 2025</h3>
+              <p class="text-sm text-gray-600">📅 June 18, 2025</p>
+              <p class="text-sm text-gray-600">📍 Singapore</p>
+              <p class="text-sm text-gray-700 mt-2">SuperAI 2025 brings together the global AI ecosystem
+                on June 18 in Singapore. Expect cutting-edge advancements, keynote talks from industry
+                leaders, and bold discussions on the future of artificial intelligence across business,
+                society, and governance.</p>
+            </div>
+          </a>
+
+          <a href="https://indrashiluniversity.edu.in/scdm-2025#:~:text=20th%20June%202025%20%2D%2022nd%20June%202025&text=The%20conference%20will%20focus%20on,technologies%20in%20the%20semiconductor%20field."
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block"
+            target="_blank">
+            <img src="events/event17.jpg" alt="scdm-2025" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">Indrashil University International Conference on
+                Semiconductor Chip Design and Manufacturing (SCDM-2025)</h3>
+              <p class="text-sm text-gray-600">📅 June 20, 2025</p>
+              <p class="text-sm text-gray-600">📍 Gujarat, India</p>
+              <p class="text-sm text-gray-700 mt-2">The conference promotes collaboration and research in
+                chip design and semiconductor manufacturing. Key topics include fabrication,
+                architecture, packaging, and emerging technologies.</p>
+            </div>
+          </a>
+
+          <a href="https://retail.economictimes.indiatimes.com/ecommerce-summit" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event1.jpg" alt="rust-paris-2025-dvk72wbd" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">E-commerce & Digital Natives Summit 2025</h3>
+              <p class="text-sm text-gray-600">📅 June 26, 2025</p>
+              <p class="text-sm text-gray-600">📍 Bengaluru</p>
+              <p class="text-sm text-gray-700 mt-2">The ET Ecommerce & D2C Summit 2025, held on June 26 in
+                New Delhi, brings together industry leaders, disruptors, and innovators to discuss the
+                future of ecommerce and direct-to-consumer business models. </p>
+            </div>
+          </a>
+
+
+          <!-- Event Card 3 -->
+
+
+          <a href="https://mkon.nu/icns-15" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event18.png" alt="ICNS-15 Malmö 2025" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">15th International Conference on Nitride Semiconductors
+                (ICNS‑15)</h3>
+              <p class="text-sm text-gray-600">📅 July 6–11, 2025</p>
+              <p class="text-sm text-gray-600">📍 Malmö, Sweden</p>
+              <p class="text-sm text-gray-700 mt-2">
+                ICNS‑15 focuses on advances in group‑III nitride semiconductors, including materials,
+                devices, high-power electronics, LEDs, and optical technologies. The event includes
+                plenary talks, posters, and an industrial exhibition.
+              </p>
+            </div>
+          </a>
+
+
+
+          <a href="https://aiml.events/events/digital-cio-indonesia-2025" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event3.jpg" alt="Digital CIO Indonesia 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">DIGITAL CIO INDONESIA 2025</h3>
+              <p class="text-sm text-gray-600">📅 July 15, 2025</p>
+              <p class="text-sm text-gray-600">📍 Jakarta, Indonesia</p>
+              <p class="text-sm text-gray-700 mt-2">Digital CIO Indonesia 2025 is a premier platform for
+                IT leaders to explore the evolving digital landscape. Taking place on July 15 in
+                Jakarta, this event gathers CIOs and technology executives to discuss innovation,
+                security, AI transformation, and digital strategies shaping the future.
+              </p>
+            </div>
+          </a>
+
+          <a href="https://aiml.events/events/ais-2025" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event4.jpg" alt="Digital CIO Indonesia 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">AIS 2025</h3>
+              <p class="text-sm text-gray-600">📅 July 29, 2025</p>
+              <p class="text-sm text-gray-600">📍 Malaysia</p>
+              <p class="text-sm text-gray-700 mt-2">AIS 2025 (Artificial Intelligence Summit) is a leading
+                AI and ML research event taking place in Malaysia and online on June 29, 2025. It brings
+                together top academics, industry leaders, and developers to explore breakthroughs in
+                AIML.
+              </p>
+            </div>
+          </a>
+
+
+          <a href="https://aiml.events/events/bfsi-it-summt-mumbai-2025" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event5.jpg" alt="BFSI IT Summit Mumbai Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">BFSI IT Summit – Mumbai 2025</h3>
+              <p class="text-sm text-gray-600">📅 August 7, 2025</p>
+              <p class="text-sm text-gray-600">📍 Mumbai</p>
+              <p class="text-sm text-gray-700 mt-2">The BFSI IT Summit – Mumbai 2025 brings together
+                technology leaders and innovators from India's banking, financial services, and
+                insurance sector. Focused on digital transformation, AI, cybersecurity, and automation,
+                the event fosters strategic discussions and networking among C-level professionals and
+                tech decision-makers.</p>
+            </div>
+          </a>
+
+
+          <a href="https://aiml.events/events/next-generation-iot-expo-2025" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event6.jpg" alt="Next-Generation IoT Expo Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">Next-Generation IoT Expo 2025</h3>
+              <p class="text-sm text-gray-600">📅 August 24, 2025</p>
+              <p class="text-sm text-gray-600">📍 Saudi Arabia</p>
+              <p class="text-sm text-gray-700 mt-2">The Next-Generation IoT Expo 2025 takes place Aug 24
+                in Saudi Arabia, bringing together global experts to explore advancements in the
+                Internet of Things. Topics include smart cities, edge computing, AI integration, and
+                secure connectivity. Ideal for innovators, engineers, and researchers.
+              </p>
+            </div>
+          </a>
+
+
+          <a href="https://aiml.events/events/intelligent-systems-conference-intellisys-2025" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event7.jpg" alt="IntelliSys 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">IntelliSys 2025</h3>
+              <p class="text-sm text-gray-600">📅 August 28, 2025</p>
+              <p class="text-sm text-gray-600">📍 Amsterdam, Netherlands</p>
+              <p class="text-sm text-gray-700 mt-2">The Intelligent Systems Conference (IntelliSys) 2025,
+                held August 28 in Amsterdam and online, brings together researchers and practitioners in
+                artificial intelligence and machine learning. Topics include intelligent systems, data
+                science, robotics, and human-computer interaction. Aimed at fostering innovation and
+                collaboration across academia and industry.
+              </p>
+            </div>
+          </a>
+
+
+          <a href="https://rustfoundation.org/event/rustconf-2025/" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event8.webp" alt="RustConf 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1"> RustConf 2025</h3>
+              <p class="text-sm text-gray-600">📅 September 2, 2025</p>
+              <p class="text-sm text-gray-600">📍 Washington</p>
+              <p class="text-sm text-gray-700 mt-2">RustConf 2025 is the premier annual Rust conference,
+                bringing together Rustaceans from all over the world. Taking place September 2 in
+                Montreal and virtually, it features keynote talks, community sessions, and workshops for
+                developers of all skill levels.
+              </p>
+            </div>
+          </a>
+
+          <a href="https://rusttechx.com/" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/rusttechx_logo.png" alt="CDAO Dallas Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1"> RustTechX Summit 2025</h3>
+              <p class="text-sm text-gray-600">📅 September 15, 2025</p>
+              <p class="text-sm text-gray-600">📍 Bengaluru,India</p>
+              <p class="text-sm text-gray-700 mt-2">The RustTechX Summit, hosted by Rust team at Bosch Global Software
+                Technologies (BGSW), is a premier event for Rust enthusiasts, developers, and industry leaders. It’s the
+                place to explore cutting-edge innovations and best practices in Rust, with a focus on embedded systems,
+                cloud computing, and beyond.
+              </p>
+            </div>
+          </a>
+
+          <a href="https://rustfoundation.org/event/oxidize-2025/" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event9.webp" alt="Oxidize 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1"> OXIDIZE 2025</h3>
+              <p class="text-sm text-gray-600">📅 September 16, 2025</p>
+              <p class="text-sm text-gray-600">📍 Berlin</p>
+              <p class="text-sm text-gray-700 mt-2">Oxidize 2025 is a one-day Rust conference taking place
+                in Paris and online on September 16, 2025. Hosted by the Rust Foundation, the event
+                brings together Rustaceans from around the world to explore the latest in Rust
+                development, community building, and innovation.
+              </p>
+            </div>
+          </a>
+
+          <a href="https://asdit.org/" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event19.png" alt="ASDIT 2025 Wuxi China" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">International Conference on Advanced Semiconductor
+                Devices and Integration Technology (ASDIT 2025)</h3>
+              <p class="text-sm text-gray-600">📅 September 19–21, 2025</p>
+              <p class="text-sm text-gray-600">📍 Wuxi, Jiangsu, China</p>
+              <p class="text-sm text-gray-700 mt-2">
+                ASDIT 2025 brings together researchers, industry professionals, and experts to discuss
+                advances in semiconductor devices, integration technologies, packaging, and materials.
+                It features keynote talks, technical sessions, and networking opportunities.
+              </p>
+            </div>
+          </a>
+
+          <a href="http://www.imt.ro/cas" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event20.png" alt="CAS 2025 Sinaia Romania" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">48th International Semiconductor Conference (CAS 2025)
+              </h3>
+              <p class="text-sm text-gray-600">📅 October 7–11, 2025</p>
+              <p class="text-sm text-gray-600">📍 Sinaia, Romania</p>
+              <p class="text-sm text-gray-700 mt-2">
+                CAS 2025 focuses on micro- and nanotechnologies in semiconductor devices, including
+                nanoscience, photonics, microsystems, ICs, and biomedical applications. The event
+                features plenary talks, oral and poster sessions, workshops, and exhibitions.
+              </p>
+            </div>
+          </a>
+
+          <a href="https://rustfoundation.org/event/eurorust-2025/" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event11.webp" alt="Oxidize 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1"> EuroRust 2025</h3>
+              <p class="text-sm text-gray-600">📅 October 9, 2025</p>
+              <p class="text-sm text-gray-600">📍 Paris, France</p>
+              <p class="text-sm text-gray-700 mt-2">EuroRust 2025 is a premier Rust conference happening
+                in Paris on October 9. Organized by the Rust Foundation, it brings together the Rust
+                community across Europe to explore innovation, share expertise, and strengthen the
+                language's ecosystem.
+              </p>
+            </div>
+          </a>
+
+
+          <a href="https://aiml.events/events/the-1st-international-electronic-conference-on-games" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event10.jpg" alt="IECG 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1"> 1st International Electronic Conference on Games</h3>
+              <p class="text-sm text-gray-600">📅 October 15, 2025</p>
+              <p class="text-sm text-gray-600">📍 Online</p>
+              <p class="text-sm text-gray-700 mt-2">The 1st International Electronic Conference on Games
+                (IECG 2025) will be held online from October 15, 2025. This virtual event provides a
+                platform for researchers, developers, and enthusiasts to present and discuss innovations
+                in game development, gamification, and serious games.
+              </p>
+            </div>
+          </a>
+
+
+          <a href="https://www.allconferencealert.com/event/1339259" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event14.png" alt="Rust Paris 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1"> International Conference on Big Data and Artificial
+                Intelligence and IoT</h3>
+              <p class="text-sm text-gray-600">📅 November 3, 2025</p>
+              <p class="text-sm text-gray-600">📍 Chandigarh, Punjab, India</p>
+              <p class="text-sm text-gray-700 mt-2">International Conference on Big Data and Artificial
+                Intelligence and IoT , on 03rd Nov 2025 at Chandigarh, Punjab, India . The key intention
+                of ICBDAIT is to provide opportunity for the global participants to share their ideas
+                and experience in person with their peers expected to join from different parts on the
+                world.</p>
+            </div>
+          </a>
+
+
+          <a href="https://aiml.events/events/mental-health-conference-2025" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event12.jpg" alt="Mental Health Conference Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1"> Mental Health Conference 2025</h3>
+              <p class="text-sm text-gray-600">📅 November 15, 2025</p>
+              <p class="text-sm text-gray-600">📍 Florida</p>
+              <p class="text-sm text-gray-700 mt-2">The Mental Health Conference 2025 brings together
+                researchers, professionals, and advocates to explore how AI and machine learning are
+                reshaping mental healthcare. Held virtually on Nov 15, 2025, the event features global
+                thought leaders, innovative technologies, and discussions on ethics, accessibility, and
+                future impacts.
+              </p>
+            </div>
+          </a>
+
+          <a href="https://aiml.events/events/cdao-dallas-2025" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event13.jpg" alt="CDAO Dallas Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1"> CDAO DALLAS 2025</h3>
+              <p class="text-sm text-gray-600">📅 November 26, 2025</p>
+              <p class="text-sm text-gray-600">📍 USA</p>
+              <p class="text-sm text-gray-700 mt-2">CDAO Dallas 2025 is a leading event for data and
+                analytics leaders, happening on Nov 26, 2025. It brings together senior decision-makers
+                to discuss strategies for driving data-driven innovation, AI adoption, and
+                organizational transformation across industries.
+              </p>
+            </div>
+          </a>
+
+
+
+
+          <a href="https://rustfoundation.org/event/eurorust-2025/" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event15.jpg" alt="EuroRust 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1"> Tech.AD USA 2025</h3>
+              <p class="text-sm text-gray-600">📅 December 8, 2025</p>
+              <p class="text-sm text-gray-600">📍 USA</p>
+              <p class="text-sm text-gray-700 mt-2">Tech.AD USA 2025 is the leading knowledge exchange
+                platform bringing together over 300 autonomous vehicle experts from North America.
+                Taking place December 8 in Detroit, the event focuses on Level 4 & 5 automation, AI,
+                sensor fusion, software development, and industry use cases.
+              </p>
+            </div>
+          </a>
+
+
+          <a href="https://nitgoa.ac.in/STPEC2025/" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/event16.png" alt="EuroRust 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1"> STPEC 2025</h3>
+              <p class="text-sm text-gray-600">📅 December 10, 2025</p>
+              <p class="text-sm text-gray-600">📍 NIT Goa, India</p>
+              <p class="text-sm text-gray-700 mt-2">The 6th International Conference on Smart Technologies
+                for Power, Energy and Control (STPEC 2025) will be held at NIT Goa from December 10–13,
+                2025. The conference focuses on advancements in power systems, control, and smart grid
+                technologies, with opportunities for global research collaboration.
+              </p>
+            </div>
+          </a>
+
+
+
+
+
+
+          <!-- Add more cards here -->
+
+        </div>
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="absolute inset-y-1/2 left-0 z-10 -translate-y-1/2 swiper-button-prev"></div>
+      <div class="absolute inset-y-1/2 right-0 z-10 -translate-y-1/2 swiper-button-next"></div>
+    </div>
+
+    <h2 class="text-3xl font-bold text-center mb-8">Past Events</h2>
+
+    <!-- Swiper Container -->
+    <div class="relative">
+      <div class="swiper pastSwiper swiper-container">
+        <div class="swiper-wrapper">
+
+          <a href="https://www.civo.com/navigate/austin/2025" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/past1.png" alt="rust-paris-2025-dvk72wbd" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">Wrapping up Civo Navigate Austin 2025</h3>
+              <p class="text-sm text-gray-600">📅 May 14th 2025</p>
+              <p class="text-sm text-gray-600">📍 San Francisco, California, USA</p>
+              <p class="text-sm text-gray-700 mt-2">If you’re passionate about cloud-native technologies,
+                Civo Navigate 2025 is the event to attend. </p>
+            </div>
+          </a>
+
+          <a href="http://aics.site/AICS2025/" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/past3.jpg" alt="Digital CIO Indonesia 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">Artificial Intelligence for Cyber Security (AICS)</h3>
+              <p class="text-sm text-gray-600">📅 March 03, 2025</p>
+              <p class="text-sm text-gray-600">📍 Philadelphia, USA</p>
+              <p class="text-sm text-gray-700 mt-2">This workshop will focus on the innovative application
+                of artificial intelligence to tackle significant challenges in cyber security, with a
+                special emphasis on enhancing human-machine collaboration. </p>
+            </div>
+          </a>
+
+          <a href="https://attend.ieee.org/iwat-2025/" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/past2.jpg" alt="SuperAI 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1">IEEE International Workshop on Antenna Technology (iWAT)
+              </h3>
+              <p class="text-sm text-gray-600">📅 Feb. 19-21, 2025</p>
+              <p class="text-sm text-gray-600">📍 Hilton Cocoa Beach Oceanfront, Cocoa Beach, FL, U.S.A.
+              </p>
+              <p class="text-sm text-gray-700 mt-2">The workshop will bring together experts and
+                researchers to discuss advancements in antenna technology. </p>
+            </div>
+          </a>
+
+          <a href="https://bitmesra.ac.in/show/event-details/5/377" target="_blank"
+            class="swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block">
+            <img src="events/past4.png" alt="Digital CIO Indonesia 2025 Logo" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-1"> International Workshop on Cold Plasma Technology and
+                Applications (CPTA-2025)</h3>
+              <p class="text-sm text-gray-600">📅 February 6th-8th, 2025</p>
+              <p class="text-sm text-gray-600">📍 Hybrid Mode at BIT Mesra, Jaipur Campus</p>
+              <p class="text-sm text-gray-700 mt-2">This workshop is hosted by BIT Mesra. The main focus
+                of the workshop will be on the latest developments in cold plasma technology and its
+                diverse applications. </p>
+            </div>
+          </a>
+        </div>
+
+
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev swiper-button-prev-past"></div>
+        <div class="swiper-button-next swiper-button-next-past"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-columns footer-top-section">
+        <div class="footer-column subscribe-section">
+          <h3>Subscribe for Updates</h3>
+
+          <form id="subscribeForm">
+            <input type="text" name="firstName" placeholder="First Name*" required>
+            <input type="text" name="lastName" placeholder="Last Name*" required>
+            <input type="email" name="email" placeholder="Email*" required>
+            <select name="country" required>
+              <option value="" disabled selected>Country*</option>
+              <option value="australia">Australia</option>
+              <option value="austria">Austria</option>
+              <option value="belgium">Belgium</option>
+              <option value="brazil">Brazil</option>
+              <option value="canada">Canada</option>
+              <option value="china">China</option>
+              <option value="czech-republic">Czech Republic</option>
+              <option value="denmark">Denmark</option>
+              <option value="estonia">Estonia</option>
+              <option value="finland">Finland</option>
+              <option value="france">France</option>
+              <option value="germany">Germany</option>
+              <option value="hong-kong">Hong Kong</option>
+              <option value="hungary">Hungary</option>
+              <option value="india">India</option>
+              <option value="indonesia">Indonesia</option>
+              <option value="ireland">Ireland</option>
+              <option value="israel">Israel</option>
+              <option value="italy">Italy</option>
+              <option value="japan">Japan</option>
+              <option value="south-korea">South Korea</option>
+              <option value="latvia">Latvia</option>
+              <option value="lithuania">Lithuania</option>
+              <option value="luxembourg">Luxembourg</option>
+              <option value="malaysia">Malaysia</option>
+              <option value="mexico">Mexico</option>
+              <option value="netherlands">Netherlands</option>
+              <option value="new-zealand">New Zealand</option>
+              <option value="norway">Norway</option>
+              <option value="poland">Poland</option>
+              <option value="portugal">Portugal</option>
+              <option value="russia">Russia</option>
+              <option value="saudi-arabia">Saudi Arabia</option>
+              <option value="singapore">Singapore</option>
+              <option value="slovenia">Slovenia</option>
+              <option value="spain">Spain</option>
+              <option value="sweden">Sweden</option>
+              <option value="switzerland">Switzerland</option>
+              <option value="taiwan">Taiwan</option>
+              <option value="uae">United Arab Emirates</option>
+              <option value="uk">United Kingdom</option>
+              <option value="usa">United States</option>
+              <option value="vietnam">Vietnam</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="subscriptionTypes" value="Technical">
+                <span>Technical</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subscriptionTypes" value="Marketing">
+                <span>Marketing</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subscriptionTypes" value="Education">
+                <span>Education</span>
+              </label>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+          <div id="subscribeSuccessMsg" class="subscribe-success" style="display:none;">
+            <h4>🎉 Congratulations! You are subscribed.</h4>
+            <p>You're now part of a future-focused community shaping tomorrow's innovations at SYSI.</p>
+            <button onclick="document.getElementById('subscribeSuccessMsg').style.display='none'"
+              class="ok-btn">Okay</button>
+          </div>
+        </div>
+        <div class="footer-column join-section">
+          <h3>Join SYSI</h3>
+          <p>Become part of a global community driving innovation in cutting-edge technologies. Collaborate, contribute,
+            and shape the future with SYSI Research Foundation.</p>
+          <a href="join.html" class="btn btn-primary btn-join">Join Now</a>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>ABOUT</h3>
+            <ul>
+              <li><a href="sysi.html">SYSI</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="news.html">News</a></li>
+              <br>
+              <h3>MEMBERS</h3>
+              <ul>
+                <li><a href="member.html">Current Members</a></li>
+                <li><a href="join.html">Join</a></li>
+              </ul>
+              <br>
+              <h3>POLICIES</h3>
+              <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+              </ul>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>SPECIFICATION</h3>
+            <ul>
+              <li><a href="under-development.html">Under Development</a></li>
+              <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>TECHNOLOGIES</h3>
+            <ul>
+              <li><a href="quantum.html">Quantum Computing</a></li>
+              <li><a href="ai.html">Artificial Intelligence</a></li>
+              <li><a href="neuro.html">Neurotechnology</a></li>
+              <li><a href="embedded.html">Embedded System</a></li>
+              <li><a href="software.html">Software Development</a></li>
+              <li><a href="space.html">Space Technology</a></li>
+              <li><a href="biotech.html">Bio Technology</a></li>
+              <li><a href="renew.html">Renewable Energy</a></li>
+              <li><a href="nanotechnology.html">Nano Technology</a></li>
+              <li><a href="cybersecurity.html">Cyber Security</a></li>
+              <li><a href="synthetic-biology.html">Synthetic Biology</a></li>
+              <li><a href="advanced-material.html">Advanced Material</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>APPLICATIONS</h3>
+            <ul>
+              <li><a href="semiconductor.html">Semiconductors</a></li>
+              <li><a href="arvr.html">AR VR</a></li>
+              <li><a href="robotics.html">Robotics</a></li>
+              <li><a href="autonomous-vehicle.html">Autonomous Vehicle</a></li>
+              <li><a href="iot.html">IoT</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>COMMUNITY</h3>
+            <ul>
+              <li><a href="community-events.html">Community Events</a></li>
+              <li><a href="calendar.html">Calendar</a></li>
+              <li><a href="video.html">Videos</a></li>
+              <li><a href="meeting-calendar.html">Meeting Calendar</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="privacy-notice">
+            By submitting this form you are consenting to receive marketing emails about news, events, and training from
+            SYSI.
+            You can unsubscribe at any time by following the “Subscription Center” link included within such
+            communications.
+            For information on our privacy practices and commitment to protecting your privacy, please review our
+            <a href="#">Privacy Policy</a>. We do not sell your contact information to third parties.
+          </p>
+          <p class="footer-text">© 2025 SYSI Research Foundation. All rights reserved.</p>
+        </div>
+      </div>
+      <style>
+        @media (min-width: 769px) {
+          .footer-columns {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 40px;
+          }
+
+          .footer-top-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+
+        }
+
+        .footer-column h3 {
+          color: #00aaff;
+          border-bottom: 2px solid #ffca28;
+          display: inline-block;
+          margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+          color: #ccc;
+          text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+          color: #ffca28;
+        }
+
+        .privacy-notice {
+          max-width: 100%;
+          font-size: 0.85rem;
+          color: #aaa;
+          line-height: 1.6;
+          margin-bottom: 15px;
+        }
+
+        .footer-bottom input,
+        .footer-bottom select {
+          width: 100%;
+          max-width: 400px;
+        }
+
+        .join-section .btn-join {
+          padding: 8px 20px;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--white);
+          background: transparent;
+          border: none;
+          border-radius: 50px;
+          text-decoration: none;
+          transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .join-section .btn-join:hover {
+          color: var(--accent);
+          transform: translateY(-2px);
+        }
+
+        .btn-join {
+          padding: 8px 20px;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--white);
+          text-decoration: none;
+          border-radius: 50px;
+          background: transparent;
+          border: none;
+          transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-join:hover {
+          color: var(--accent);
+          transform: translateY(-2px);
+        }
+
+        .search-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.9);
+          z-index: 1000;
+        }
+
+        .search-content {
+          position: relative;
+          top: 20%;
+          width: 80%;
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          color: white;
+        }
+
+        .close-search {
+          position: absolute;
+          right: 25px;
+          top: 0;
+          color: #fff;
+          font-size: 35px;
+          cursor: pointer;
+        }
+
+        .search-box input {
+          width: 100%;
+          padding: 15px;
+          font-size: 16px;
+          border: none;
+          border-radius: 4px;
+          margin-bottom: 20px;
+        }
+
+        #searchResults {
+          max-height: 60vh;
+          overflow-y: auto;
+        }
+
+        #searchResults a {
+          color: #00aaff;
+          text-decoration: none;
+          display: block;
+          padding: 10px;
+          background: rgba(255, 255, 255, 0.1);
+          margin-bottom: 5px;
+          border-radius: 4px;
+        }
+
+        #searchResults a:hover {
+          background: rgba(255, 255, 255, 0.2);
+        }
+
+        .result-item {
+          margin-bottom: 15px;
+        }
+
+        .result-title {
+          color: #00aaff;
+          font-weight: bold;
+        }
+
+        .result-preview {
+          color: #ccc;
+          font-size: 0.9em;
+        }
+      </style>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const upcomingSwiper = new Swiper(".upcomingSwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 24,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      grabCursor: true,
+    });
+    const pastSwiper = new Swiper(".pastSwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 24,
+      navigation: {
+        nextEl: ".swiper-button-next-past",
+        prevEl: ".swiper-button-prev-past",
+      },
+      grabCursor: true,
+    });
+
+    function updateEventStatus() {
+      const now = new Date();
+      const eventCards = document.querySelectorAll('.event-card');
+
+      eventCards.forEach(card => {
+        const endTime = new Date(card.getAttribute('data-end-time'));
+        const isInPastSection = card.closest('.past-events') !== null;
+
+        if (now > endTime && !isInPastSection) {
+          const pastContainer = document.querySelector('.past-events');
+          card.classList.remove('move-animation'); // Remove old animation class
+          const clonedCard = card.cloneNode(true); // Clone to reset animation
+          card.remove(); // Remove original card
+          pastContainer.appendChild(clonedCard); // Append clone
+          void clonedCard.offsetWidth; // Force reflow
+          clonedCard.classList.add('move-animation'); // Trigger animation
+        }
+
+        // Optional reverse logic if needed
+        if (now <= endTime && isInPastSection) {
+          const upcomingContainer = document.querySelector('.upcoming-events');
+          card.classList.remove('move-animation');
+          const clonedCard = card.cloneNode(true);
+          card.remove();
+          upcomingContainer.appendChild(clonedCard);
+          void clonedCard.offsetWidth;
+          clonedCard.classList.add('move-animation');
+        }
+      });
+    }
+
+    updateEventStatus();
+    setInterval(updateEventStatus, 60000);
+
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropdowns = document.querySelectorAll('.dropdown');
+
+      dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
+
+        menu.style.display = 'none';
+
+        dropdown.addEventListener('mouseenter', () => {
+          menu.style.display = 'block';
+        });
+
+        dropdown.addEventListener('mouseleave', () => {
+          menu.style.display = 'none';
+        });
+
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isVisible = menu.style.display === 'block';
+          document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
+          if (!isVisible) menu.style.display = 'block';
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+          document.querySelectorAll('.dropdown-menu').forEach(menu => menu.style.display = 'none');
+        }
+      });
+
+      document.getElementById('subscribeForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const data = {
+          firstName: form.firstName.value,
+          lastName: form.lastName.value,
+          email: form.email.value,
+          country: form.country.value,
+          subscriptionTypes: Array.from(form.querySelectorAll('input[name="subscriptionTypes"]:checked')).map(el => el.value)
+        };
+
+        console.log("Sending data:", data); // Debug: Check the data being sent
+
+        try {
+          const res = await fetch('http://localhost:3000/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+
+          if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);  // Fix: Add proper template literal syntax
+          }
+
+          const msg = await res.text();
+          console.log("Server responded:", msg);
+          document.getElementById('subscribeSuccessMsg').style.display = 'block';
+
+          form.reset();
+        } catch (err) {
+          console.error("Fetch error:", err);
+          alert('Submission failed: ' + err.message);
+        }
+      });
+
+      fetch('events-data.json')
+        .then(res => res.json())
+        .then(events => {
+          const container = document.querySelector('.upcomingSwiper .swiper-wrapper');
+          events.forEach(ev => {
+            const card = document.createElement('a');
+            card.href = ev.url;
+            card.target = "_blank";
+            card.className = "swiper-slide card-link bg-white rounded-xl shadow-md overflow-hidden w-80 sm:w-96 block";
+            card.innerHTML = `
+          <img src="${ev.image || 'events/default.jpg'}" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-1">${ev.title}</h3>
+            <p class="text-sm text-gray-600">📅 ${ev.start}</p>
+            <p class="text-sm text-gray-600">📍 ${ev.location}</p>
+            <p class="text-sm text-gray-700 mt-2">${ev.description}</p>
+          </div>
+        `;
+            container.appendChild(card);
+          });
+        });
+      // Search functionality - fixed close button
+      const searchBtn = document.querySelector('[title="Search"]');
+      const searchOverlay = document.getElementById('searchOverlay');
+      const searchInput = document.getElementById('searchInput');
+      const searchResults = document.getElementById('searchResults');
+      const closeSearch = document.querySelector('.close-search');
+
+      function hideSearchOverlay() {
+        searchOverlay.style.display = 'none';
+        searchInput.value = '';
+        searchResults.innerHTML = '';
+      }
+
+      searchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        searchOverlay.style.display = 'block';
+        searchInput.focus();
+      });
+
+      // Updated close button handler
+      closeSearch.addEventListener('click', hideSearchOverlay);
+
+      // Close on Escape key
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchOverlay.style.display === 'block') {
+          hideSearchOverlay();
+        }
+      });
+
+      // Close when clicking outside the search content
+      searchOverlay.addEventListener('click', (e) => {
+        if (e.target === searchOverlay) {
+          hideSearchOverlay();
+        }
+      });
+
+      // Collection of searchable content
+      const searchableContent = [
+        // Technologies
+        { title: 'Quantum Computing', url: 'quantum.html', preview: 'Exploring quantum mechanics for revolutionary computing capabilities.' },
+        { title: 'Artificial Intelligence', url: 'ai.html', preview: 'AI is reshaping the world with intelligent algorithms that learn, reason, and adapt.' },
+        { title: 'Neurotechnology', url: 'neuro.html', preview: 'Advancing brain-computer interfaces and neural engineering solutions.' },
+        { title: 'Embedded Systems', url: 'embedded.html', preview: 'Developing specialized computer systems for specific functions within larger systems.' },
+        { title: 'Software Development', url: 'software.html', preview: 'Creating robust software solutions across multiple platforms and technologies.' },
+        { title: 'Space Technology', url: 'space.html', preview: 'Innovating technologies for space exploration and satellite systems.' },
+        { title: 'Biotechnology', url: 'biotech.html', preview: 'Biotechnology enables groundbreaking therapies, sustainable food, and genetic innovations.' },
+        { title: 'Renewable Energy', url: 'renew.html', preview: 'Developing sustainable energy solutions for a cleaner future.' },
+        { title: 'Nanotechnology', url: 'nanotechnology.html', preview: 'Manipulating matter at the atomic scale for breakthrough applications.' },
+        { title: 'Cyber Security', url: 'cybersecurity.html', preview: 'Protecting digital assets and infrastructure from cyber threats.' },
+        { title: 'Synthetic Biology', url: 'synthetic-biology.html', preview: 'Engineering biological systems for novel applications.' },
+        { title: 'Advanced Materials', url: 'advanced-material.html', preview: 'Developing new materials with enhanced properties and capabilities.' },
+
+        // Applications
+        { title: 'Semiconductors', url: 'semiconductor.html', preview: 'Advancing semiconductor technology for next-generation electronics.' },
+        { title: 'AR & VR', url: 'arvr.html', preview: 'Augmented and Virtual Reality unlock immersive experiences that bridge the physical and digital.' },
+        { title: 'Robotics', url: 'robotics.html', preview: 'Building intelligent robotic systems for various applications.' },
+        { title: 'Autonomous Vehicles', url: 'autonomous-vehicle.html', preview: 'Developing self-driving technology for safer transportation.' },
+        { title: 'IoT', url: 'iot.html', preview: 'Connecting devices and systems in the Internet of Things.' },
+
+        // About
+        { title: 'SYSI', url: 'sysi.html', preview: 'SYSI Research Foundation is committed to exploring the frontiers of knowledge across cutting-edge domains.' },
+        { title: 'FAQ', url: 'faq.html', preview: 'Frequently asked questions about SYSI Research Foundation.' },
+        { title: 'Contact Us', url: 'contact.html', preview: 'Get in touch with SYSI Research Foundation.' },
+        { title: 'News', url: 'news.html', preview: 'Latest updates and announcements from SYSI.' },
+
+        // Community
+        { title: 'Community Events', url: 'community-events.html', preview: 'Join our community events and networking opportunities.' },
+        { title: 'Calendar', url: 'calendar.html', preview: 'Upcoming events and important dates.' },
+        { title: 'Videos', url: 'video.html', preview: 'Watch presentations and tutorials from SYSI.' },
+        { title: 'Meeting Calendar', url: 'meeting-calendar.html', preview: 'Schedule of upcoming meetings and conferences.' },
+
+        // Members
+        { title: 'Current Members', url: 'member.html', preview: 'Meet our community of researchers and innovators.' },
+        { title: 'Join', url: 'join.html', preview: 'Become part of the SYSI Research Foundation community.' },
+
+        // Specifications
+        { title: 'Under Development', url: 'under-development.html', preview: 'Current projects and initiatives in development.' },
+        { title: 'Contribute', url: 'contribute.html', preview: 'Ways to contribute to SYSI Research Foundation.' }
+      ];
+
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        if (query.length < 2) {
+          searchResults.innerHTML = '';
+          return;
+        }
+
+        const filteredResults = searchableContent.filter(item =>
+          item.title.toLowerCase().includes(query) ||
+          item.preview.toLowerCase().includes(query)
+        );
+
+        searchResults.innerHTML = filteredResults.length > 0
+          ? filteredResults.map(item => `
+              <div class="result-item">
+                <a href="${item.url}">
+                  <div class="result-title">${item.title}</div>
+                  <div class="result-preview">${item.preview}</div>
+                </a>
+              </div>
+            `).join('')
+          : '<p style="color: #fff;">No results found</p>';
+      });
+
+      // Close search on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchOverlay.style.display === 'block') {
+          hideSearchOverlay();
+        }
+      });
+      // Hamburger toggle for mobile
+      document.getElementById('navToggle')?.addEventListener('click', function () {
+        document.querySelector('.nav ul')?.classList.toggle('active');
+      });
+      const isMobile = window.innerWidth <= 1024;
+
+      if (isMobile) {
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+          toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            const menu = this.nextElementSibling;
+
+            document.querySelectorAll('.dropdown-menu').forEach(m => {
+              if (m !== menu) m.style.display = 'none';
+            });
+
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+          });
+        });
+
+        document.addEventListener('click', function (e) {
+          if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+              menu.style.display = 'none';
+            });
+          }
+        });
+      }
+
+    });
+  </script>
+</body>
+
+</html>
